@@ -91,6 +91,8 @@ dependencies {
 	compile("org.testng:testng:$testngVersion")
 	compile("org.mockito:mockito-core:$mockitoVersion")
 
+	compile "com.jayway.jsonpath:json-path:0.8.1"
+	testCompile("com.jayway.restassured:rest-assured:2.4.1")
 
     testCompile("junit:junit")
     testCompile("org.springframework.boot:spring-boot-starter-test")
