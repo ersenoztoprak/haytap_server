@@ -12,7 +12,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 public enum UserType {
 	INDVL, CORP;
 	
-	private static Map<String, UserType> namesMap = new HashMap<String, UserType>(2);
+	private static Map<String, UserType> namesMap = new HashMap<>(2);
 
     static {
         namesMap.put("INDVL", INDVL);

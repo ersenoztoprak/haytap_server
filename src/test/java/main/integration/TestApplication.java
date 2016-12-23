@@ -10,7 +10,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ersen.Application;
-import com.ersen.repository.UserRepository;
+import com.ersen.service.UserService;
 import com.jayway.restassured.RestAssured;
 
 @SpringApplicationConfiguration(classes = Application.class)
@@ -24,7 +24,7 @@ public abstract class TestApplication {
     protected int serverPort;
 
     @Autowired
-    protected UserRepository userRepository;
+    protected UserService userService;
 
     @Before
     public void setUp() throws Exception {
