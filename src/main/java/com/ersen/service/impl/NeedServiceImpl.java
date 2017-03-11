@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.ersen.entity.Category;
 import com.ersen.entity.Need;
-import com.ersen.entity.User;
 import com.ersen.entity.domain.Free;
 import com.ersen.entity.domain.Payable;
 import com.ersen.entity.domain.Personal;

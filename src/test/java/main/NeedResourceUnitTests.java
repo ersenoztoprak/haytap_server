@@ -16,11 +16,8 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import com.ersen.controller.NeedResource;
 import com.ersen.entity.Need;
-import com.ersen.entity.User;
-import com.ersen.entity.builder.CompanyBuilder;
 import com.ersen.entity.builder.FreeBuilder;
 import com.ersen.entity.builder.PayableBuilder;
-import com.ersen.entity.builder.PersonalBuilder;
 import com.ersen.entity.dto.request.CreateNeedDTO;
 import com.ersen.entity.dto.request.CreateUserDTO;
 import com.ersen.entity.enums.UserType;

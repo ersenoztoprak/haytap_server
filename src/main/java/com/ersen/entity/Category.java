@@ -12,8 +12,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.ersen.entity.enums.CategoryFeeStatus;
-
 @Entity
 @Table(name = "categories")
 public class Category {

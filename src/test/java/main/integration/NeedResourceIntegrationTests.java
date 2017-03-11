@@ -4,7 +4,6 @@ import static com.jayway.restassured.RestAssured.given;
 
 import java.math.BigDecimal;
 
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.http.HttpStatus;

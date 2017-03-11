@@ -1,6 +1,5 @@
 package main;
 
-import static org.hamcrest.CoreMatchers.isA;
 import static org.mockito.Mockito.when;
 
 import org.junit.Before;
