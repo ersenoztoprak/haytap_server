@@ -10,6 +10,7 @@ import com.ersen.entity.Need;
 import com.ersen.entity.domain.Free;
 import com.ersen.entity.domain.Payable;
 import com.ersen.entity.domain.Personal;
+import com.ersen.entity.dto.request.AdminApproveDTO;
 import com.ersen.entity.dto.request.CreateNeedDTO;
 import com.ersen.entity.enums.AdminStatus;
 import com.ersen.entity.enums.NeedStatus;
@@ -19,6 +20,7 @@ import com.ersen.repository.NeedRepository;
 import com.ersen.service.CategoryService;
 import com.ersen.service.NeedService;
 import com.ersen.service.UserService;
+import com.ersen.util.NumberUtils;
 import com.ersen.util.ValidationUtils;
 
 @Service
@@ -70,5 +72,34 @@ public class NeedServiceImpl implements NeedService{
 
 		return needRepository.save(newNeed);
 	}
+
+	@Override
+	public void approve(Long id, AdminApproveDTO dto) {
+		if (NumberUtils.isZero(id))
+			throw new RuntimeException(); 
+		
+		dto.validate();
+		
+		Need need = getNeedById(id);
+		
+		if (!need.waitingAdminCheck()) {
+			throw new RuntimeException();
+		}
+		
+		needRepository.approve(id, dto.getStatus());
+	}
+
+	private Need getNeedByIdUnSafe(Long id) {
+		return needRepository.findOne(id);
+	}
+	
+	private Need getNeedById(Long id) {
+		Need need = getNeedByIdUnSafe(id);
+		if (need == null)
+			throw new RuntimeException();
+		
+		return need;
+	}
+	
 
 }

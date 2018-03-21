@@ -107,4 +107,8 @@ public abstract class Need {
 		this.adminStatus = adminStatus;
 	}
 	
+	public boolean waitingAdminCheck() {
+		return adminStatus == AdminStatus.PENDING;
+	}
+	
 }
