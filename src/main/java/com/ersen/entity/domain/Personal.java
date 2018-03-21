@@ -10,7 +10,6 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
 import com.ersen.entity.Need;
-import com.ersen.entity.Supporter;
 import com.ersen.entity.User;
 import com.ersen.entity.enums.UserType;
 

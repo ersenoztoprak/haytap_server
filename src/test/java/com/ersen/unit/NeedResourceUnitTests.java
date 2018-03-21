@@ -1,4 +1,4 @@
-package main;
+package com.ersen.unit;
 
 import static org.mockito.Matchers.isA;
 import static org.mockito.Mockito.when;
@@ -17,7 +17,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import com.ersen.controller.NeedResource;
 import com.ersen.entity.Need;
 import com.ersen.entity.builder.FreeBuilder;
-import com.ersen.entity.builder.PayableBuilder;
+import com.ersen.entity.builder.PaidBuilder;
 import com.ersen.entity.dto.request.CreateNeedDTO;
 import com.ersen.entity.dto.request.CreateUserDTO;
 import com.ersen.entity.enums.UserType;
@@ -51,7 +51,7 @@ public class NeedResourceUnitTests {
 	
 	@Test
     public void createPayableNeed_Created_ShouldReturnResponseStatusOK() throws Exception {
-    	Need need = new PayableBuilder().id(ID).get();
+    	Need need = new PaidBuilder().id(ID).get();
         
         when(needService.create(isA(CreateNeedDTO.class))).thenReturn(need);
         mockMvc.perform(post("/need/").contentType(MediaType.APPLICATION_JSON).content(WebTestUtil.convertObjectToJsonBytes(dto))).andExpect(status().isCreated());

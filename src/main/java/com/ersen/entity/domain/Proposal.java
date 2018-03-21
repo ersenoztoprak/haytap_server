@@ -1,4 +1,4 @@
-package com.ersen.entity;
+package com.ersen.entity.domain;
 
 import java.math.BigDecimal;
 
@@ -13,8 +13,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.ersen.entity.domain.Company;
-import com.ersen.entity.domain.Payable;
 import com.ersen.entity.enums.ProposalStatus;
 
 @Entity
@@ -27,7 +25,7 @@ public class Proposal {
 	
 	@ManyToOne
 	@JoinColumn(name = "need_id")
-	private Payable need;
+	private Paid need;
 	
 	@ManyToOne
 	@JoinColumn(name = "owner_id")
@@ -35,9 +33,6 @@ public class Proposal {
 	
 	@Column
 	private BigDecimal price;
-	
-	@Column
-	private String description;
 	
 	@Enumerated(EnumType.STRING)
     @Column(name = "status")
@@ -51,11 +46,11 @@ public class Proposal {
 		this.id = id;
 	}
 
-	public Payable getNeed() {
+	public Paid getNeed() {
 		return need;
 	}
 
-	public void setNeed(Payable need) {
+	public void setNeed(Paid need) {
 		this.need = need;
 	}
 
@@ -73,14 +68,6 @@ public class Proposal {
 
 	public void setPrice(BigDecimal price) {
 		this.price = price;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
 	}
 
 	public ProposalStatus getStatus() {

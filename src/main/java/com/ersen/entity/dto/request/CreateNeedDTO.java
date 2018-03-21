@@ -93,7 +93,7 @@ public class CreateNeedDTO {
 			throw new InvalidRequestParametersException("category id must be greater than zero");
 		}
 		
-		if (type != NeedType.FREE && type != NeedType.PAYABLE) {
+		if (type != NeedType.FREE && type != NeedType.PAID) {
 			throw new InvalidRequestParametersException("unrecognized need type!");
 		}
 	}

@@ -1,4 +1,4 @@
-package com.ersen.entity;
+package com.ersen.entity.domain;
 
 import java.math.BigDecimal;
 
@@ -13,8 +13,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.ersen.entity.domain.Payable;
-import com.ersen.entity.domain.Personal;
 import com.ersen.entity.enums.SupportStatus;
 
 @Entity
@@ -27,7 +25,7 @@ public class Supporter {
 	
 	@ManyToOne
 	@JoinColumn(name = "need_id")
-	private Payable supportedNeed;
+	private Paid need;
 	
 	@ManyToOne
 	@JoinColumn(name = "owner_id")
@@ -48,12 +46,12 @@ public class Supporter {
 		this.id = id;
 	}
 
-	public Payable getSupportedNeed() {
-		return supportedNeed;
+	public Paid getNeed() {
+		return need;
 	}
 
-	public void setSupportedNeed(Payable supportedNeed) {
-		this.supportedNeed = supportedNeed;
+	public void setNeed(Paid need) {
+		this.need = need;
 	}
 
 	public Personal getSupporter() {

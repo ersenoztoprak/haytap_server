@@ -5,16 +5,16 @@ import org.springframework.stereotype.Service;
 
 import com.ersen.entity.Category;
 import com.ersen.exception.CategoryNotFoundException;
-import com.ersen.repository.CategoryRespository;
+import com.ersen.repository.CategoryRepository;
 import com.ersen.service.CategoryService;
 
 @Service
 public class CategoryServiceImpl implements CategoryService{
 
-	private CategoryRespository categoryRespository;
+	private CategoryRepository categoryRespository;
 	
 	@Autowired
-	public CategoryServiceImpl(CategoryRespository categoryRespository) {
+	public CategoryServiceImpl(CategoryRepository categoryRespository) {
 		this.categoryRespository = categoryRespository;
 	}
 	

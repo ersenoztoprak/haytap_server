@@ -3,7 +3,7 @@ package com.ersen.entity.dto.response;
 import com.ersen.entity.Category;
 import com.ersen.entity.Need;
 import com.ersen.entity.domain.Free;
-import com.ersen.entity.domain.Payable;
+import com.ersen.entity.domain.Paid;
 import com.ersen.entity.domain.Personal;
 import com.ersen.entity.enums.AdminStatus;
 
@@ -26,8 +26,8 @@ public class NeedDTO {
 	}
 	
 	public static NeedDTO fromNeed(Need need) {
-		if (need instanceof Payable) {
-			return new PayableDTO((Payable)need);
+		if (need instanceof Paid) {
+			return new PaidDTO((Paid)need);
 		}
 		else {
 			return new FreeDTO((Free)need);

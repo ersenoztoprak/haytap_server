@@ -10,12 +10,12 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum NeedType {
-	PAYABLE, FREE;
+	PAID, FREE;
 	
 	private static Map<String, NeedType> namesMap = new HashMap<String, NeedType>(2);
 
     static {
-        namesMap.put("PAYABLE", PAYABLE);
+        namesMap.put("PAID", PAID);
         namesMap.put("FREE", FREE);
     }
 

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.ersen.entity.Category;
 import com.ersen.entity.Need;
 import com.ersen.entity.domain.Free;
-import com.ersen.entity.domain.Payable;
+import com.ersen.entity.domain.Paid;
 import com.ersen.entity.domain.Personal;
 import com.ersen.entity.dto.request.AdminApproveDTO;
 import com.ersen.entity.dto.request.CreateNeedDTO;
@@ -49,14 +49,14 @@ public class NeedServiceImpl implements NeedService{
 
 		Need newNeed = null;
 
-		if (dto.getType() == NeedType.PAYABLE) {
-			newNeed = new Payable();
+		if (dto.getType() == NeedType.PAID) {
+			newNeed = new Paid();
 
 			if (dto.getAmount() == null || dto.getAmount().compareTo(BigDecimal.ZERO) <= 0) {
 				throw new InvalidRequestParametersException("amount must be greater than zero");
 			} 
 
-			Payable payable = (Payable)newNeed;
+			Paid payable = (Paid)newNeed;
 			payable.setAmount(dto.getAmount());
 			payable.setStatus(NeedStatus.WAITING_PROPOSAL);
 		}

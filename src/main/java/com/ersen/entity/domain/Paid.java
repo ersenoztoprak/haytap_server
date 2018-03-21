@@ -15,14 +15,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import com.ersen.entity.Need;
-import com.ersen.entity.Proposal;
-import com.ersen.entity.Supporter;
 import com.ersen.entity.enums.NeedStatus;
 import com.ersen.entity.enums.NeedType;
 
 @Entity
 @DiscriminatorValue(value = "PAYABLE")
-public class Payable extends Need {
+public class Paid extends Need {
 
 	@ManyToOne
 	@JoinColumn(name = "builder_id")
@@ -35,17 +33,14 @@ public class Payable extends Need {
     @Column(name = "status")
 	private NeedStatus status;
 	
-	@Column
-	private String code;
-	
 	@OneToMany(mappedBy = "need", cascade = CascadeType.ALL)
 	private List<Proposal> proposals = new ArrayList<Proposal>();
 	
-	@OneToMany(mappedBy = "supportedNeed", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "need", cascade = CascadeType.ALL)
 	private List<Supporter> supporters = new ArrayList<Supporter>();
 	
-	public Payable () {
-		setType(NeedType.PAYABLE);
+	public Paid () {
+		setType(NeedType.PAID);
 	}
 
 	public Company getBuilder() {
@@ -70,14 +65,6 @@ public class Payable extends Need {
 
 	public void setStatus(NeedStatus status) {
 		this.status = status;
-	}
-
-	public String getCode() {
-		return code;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
 	}
 
 	public List<Proposal> getProposals() {

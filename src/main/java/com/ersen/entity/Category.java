@@ -22,6 +22,9 @@ public class Category {
 	
 	@Column
 	private String name;
+	
+	@Column
+	private boolean isPaid;
 
 	@OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
     private List<Need> needs = new ArrayList<Need>();
@@ -40,6 +43,14 @@ public class Category {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public boolean isPaid() {
+		return isPaid;
+	}
+
+	public void setPaid(boolean isPaid) {
+		this.isPaid = isPaid;
 	}
 
 	public List<Need> getNeeds() {

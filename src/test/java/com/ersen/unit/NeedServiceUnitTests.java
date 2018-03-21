@@ -1,4 +1,4 @@
-package main;
+package com.ersen.unit;
 
 import static org.mockito.Mockito.when;
 
@@ -51,7 +51,7 @@ public class NeedServiceUnitTests {
 		dto.setTitle("aaa");
 		dto.setDescription("bbb");
 		dto.setCategoryId(1L);
-		dto.setType(NeedType.PAYABLE);
+		dto.setType(NeedType.PAID);
 		dto.setOwnerId(1L);
 		
 		User user = new PersonalBuilder().id(dto.getOwnerId()).get();

@@ -8,7 +8,6 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
-import com.ersen.entity.Proposal;
 import com.ersen.entity.User;
 import com.ersen.entity.enums.UserType;
 
